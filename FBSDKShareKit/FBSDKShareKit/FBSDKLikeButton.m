@@ -159,7 +159,7 @@
             selectedColor:selectedColor
  selectedHighlightedColor:selectedHighlightedColor];
 
-  [self addTarget:self action:@selector(_handleTap:) forControlEvents:UIControlEventTouchUpInside];
+  [self addTarget:self action:@selector(_handleLikeButtonTap:) forControlEvents:UIControlEventTouchUpInside];
   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
   [nc addObserver:self
          selector:@selector(_likeActionControllerDidDisableNotification:)
@@ -197,7 +197,7 @@
   }
 }
 
-- (void)_handleTap:(FBSDKLikeButton *)likeButton
+- (void)_handleLikeButtonTap:(FBSDKLikeButton *)likeButton
 {
   [self logTapEventWithEventName:FBSDKAppEventNameFBSDKLikeButtonDidTap parameters:[self analyticsParameters]];
   [self _ensureLikeActionController:YES];
